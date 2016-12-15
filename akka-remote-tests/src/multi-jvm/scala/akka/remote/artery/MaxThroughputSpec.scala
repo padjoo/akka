@@ -30,7 +30,7 @@ object MaxThroughputSpec extends MultiNodeConfig {
   commonConfig(debugConfig(on = false).withFallback(
     ConfigFactory.parseString(s"""
        # for serious measurements you should increase the totalMessagesFactor (20)
-       akka.test.MaxThroughputSpec.totalMessagesFactor = 1.0
+       akka.test.MaxThroughputSpec.totalMessagesFactor = 10.0
        akka.test.MaxThroughputSpec.real-message = off
        akka {
          loglevel = INFO
@@ -58,8 +58,8 @@ object MaxThroughputSpec extends MultiNodeConfig {
            # for serious measurements when running this test on only one machine
            # it is recommended to use external media driver
            # See akka-remote-tests/src/test/resources/aeron.properties
-           #advanced.embedded-media-driver = off
-           #advanced.aeron-dir = "target/aeron"
+           advanced.embedded-media-driver = off
+           advanced.aeron-dir = "target/aeron"
 
            advanced.compression {
              actor-refs.advertisement-interval = 2 second
